@@ -1,14 +1,8 @@
 const express = require('express');
+const { fetchRecipes } = require('../controllers/recipesController');
 
 const routes = express.Router();
 
-routes.get('/recipes', (req, res, next) => {
-    try {
-        throw({message: 'internal error test', status: 500});
-        res.send('Nodemon test docker-compose');
-    } catch (error) {
-        next(error);
-    }
-});
+routes.get('/recipes', fetchRecipes);
 
 module.exports = routes;

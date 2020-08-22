@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/pablothobias/recipes-api#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
