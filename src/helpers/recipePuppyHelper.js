@@ -8,7 +8,7 @@ module.exports = {
             const recipes = response.data.results;
             return recipes;
         } catch (error) {
-            throw({message: 'Could not fetch any recipes from recipe puppy at this moment. Please try later.', status: 404});
+            throw(error);
         }
     }
 };

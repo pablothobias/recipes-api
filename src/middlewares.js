@@ -4,10 +4,10 @@ module.exports = {
             if (req.query.i) {
                 const params = req.query.i.split(',');
                 if (params.length > 3) {
-                    throw ({ message: 'Invalid number of ingredients. You must select at most 3 ingredients.', status: 422 });
+                    throw ({ message: 'Invalid number of ingredients. You must select at most 3 ingredients.', status: 400 });
                 }
             } else {
-                throw ({ message: 'Invalid number of ingredients. You must select at least 1 ingredient.', status: 422 });
+                throw ({ message: 'Invalid number of ingredients. You must select at least 1 ingredient.', status: 400 });
             }
         }
 
