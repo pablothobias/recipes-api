@@ -1,14 +1,15 @@
 const { fetchRecipesFromRecipePuppy } = require('../helpers/recipePuppyHelper');
+const { fetchGifForRecipes } = require('../helpers/giphyHelper');
+const { sanitizeResponse } = require('../helpers/recipeCtrlHelper');
 
 module.exports = {
     fetchRecipes: async (req, res, next) => {
         try {
             const ingredients = req.query.i;
-            const recipesResponse = await fetchRecipesFromRecipePuppy(ingredients, next);
-            const recipes = recipesResponse.data.results;
-            const keywords = req.query.i.split(',');
-            sanitizeResponse({recipes, keywords});
-            res.send(recipes);
+            const recipePuppyResponse = await fetchRecipesFromRecipePuppy(ingredients);
+            const recipesWithGif = await fetchGifForRecipes(recipePuppyResponse);
+            const sanitizedRecipes = sanitizeResponse({recipesWithGif, ingredients});
+            res.status(200).json(sanitizedRecipes);
         } catch (error) {
             next(error);
         }
