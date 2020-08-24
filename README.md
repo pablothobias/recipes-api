@@ -17,7 +17,8 @@ Then, you have to navigate to the project directory and run the following comman
 
 Before running the project indeed, you have to go Giphy developers page and create your API key to be able to fetch the gifs.
 
-    [https://developers.giphy.com/docs/api#quick-start-guide](https://developers.giphy.com/docs/api#quick-start-guide)
+[https://developers.giphy.com/docs/api#quick-start-guide](https://developers.giphy.com/docs/api#quick-start-guide)
+
 After that, run:
 
     GIPHY_API_KEY={YOUR_GIPHY_API_KEY} npm start
@@ -46,7 +47,9 @@ If the images was successfully created you can enter:
     docker run -e GIPHY_API_KEY={YOUR_GIPHY_API_KEY} -p {PORT}:3000 -d {APP_NAME}
 
 **YOUR_GIPHY_API_KEY**: Refers to the Giphy API key explained at the beginning of this documentation.
+
 **PORT**: The port you would like to run the API. Recommended: **3000**.
+
 **APP_NAME**: The name of the image that you have inserted in the command to create an image.
 
 Finally, after those commands, you'll be running your container and can access the recipes API. You can check if it is fine, running:

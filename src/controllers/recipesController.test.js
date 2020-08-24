@@ -24,7 +24,14 @@ test('Should get recipes', async () => {
 
 })
 
-test('Should get error 400 when trying to fetch recipes with more than three parameters', async () => {
-    const result = await request(BASE_URL).get('/recipes?i=bacon,ham,garlic,tomato')
+test('Should get error 400 when trying to fetch recipes with more than 3 ingredients', async () => {
+    const ingredients = 'bacon, ham, garlic, tomato';
+    const result = await request(BASE_URL).get(`/recipes?i=${ingredients}`)
+    expect(result.status).toBe(400);
+})
+
+test('Should get error 400 when trying to fetch recipes with none ingredient', async () => {
+    const ingredients = '';
+    const result = await request(BASE_URL).get(`/recipes?i=${ingredients}`)
     expect(result.status).toBe(400);
 })
